@@ -1,0 +1,61 @@
+p {
+        font-family: 'Telex',sans-serif;
+}
+
+blockquote {
+    background: url("../images/quote.png") no-repeat scroll left top transparent;
+    display: block;
+    font-family: Georgia,"Times New Roman",Times,serif !important;
+    font-style: italic;
+    padding-left: 25px;
+    border-left: none;
+}
+
+.bar {
+    background-color: #CCCCCC;
+    height: 1px;
+}
+
+.site-logo {
+    background: white;  
+    padding: 10px 0 10px 0;
+}
+
+.navbar-inner {
+    height: 10%;
+}
+
+.thumbnail.right-caption > img {
+    float: left;
+    margin-right: 9px;
+}
+
+.thumbnail.right-caption {
+    float: left;
+}
+
+.thumbnail.right-caption > .caption {
+    padding: 4px;
+}
+
+#site-register button {
+    margin-left: 5px;
+    width: 75px;
+}
+
+#site-name {
+    font-size: 2.3em;
+}
+
+#site-menu {
+    font: bold 1.1em/1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+                        
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 979px) {
+    body {
+        padding-top: 0px;
+    }
+}
