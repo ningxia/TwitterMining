@@ -15,12 +15,14 @@ public class US extends Model {
     public Long tweetId;
     
     @Required
-    Long id;
+    Long userId;
     
     @Required
     Date date;
     
-    public String geo;
+    public Float latitude;
+    
+    public Float longitude;
     
     public String city;
     

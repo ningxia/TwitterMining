@@ -4,9 +4,8 @@
 
 # Home page
 GET     /                                       Application.index
-
-# Use Twitter Boostrap module
-GET		/twitter								module:twitterBootstrap
+GET		/sites.json								Application.listSites
+POST	/postbounds								Application.receiveBounds
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
