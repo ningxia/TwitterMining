@@ -2,18 +2,21 @@
 #{set title:'Mining Twitter Home' /}
 
 <!-- Map -->
-<div class="row-fluid">
-    <div class="span8">
-        <div id="map_canvas" style="width: 100%; height: 500px;">
-        </div>
-    </div>
-    <div class="span4">
-        <h3>Information</h3>
-        <div>
-            <ul id="sites">
-            </ul>
-        </div>
-    </div>
+<div class="container">
+	<div id="map_canvas" style="width: 100%; height: 600px;">
+	</div>
 </div>
 
-
+<div id="sites">
+</div>
+<!--
+#{set 'moreScripts'}
+<script>
+	$(function() {
+		#{list items:data, as:'d'}
+			$('#sites').append('<li>' + '${d.city}' + ' ' + '${d.state}' + ' ' + '${d.latitude}' + ' ' + '${d.longitude}' + '</li>');
+		#{/list}
+	});
+</script>
+#{/set}
+-->

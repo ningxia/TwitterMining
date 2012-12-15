@@ -13,12 +13,29 @@ public class Site extends Model {
 	
 	public String state;
 	
+	public int obama;
+	
+	public int romney;
+	
 	public Float latitude;
 	
 	public Float longitude;
 	
-	public int obama;
+	public String obamaStat;
 	
-	public int romney;
+	public String romneyStat;
+	
+	public Site(String city, String state, int obama, int romney, Float latitude, Float longitude, String obamaStat, String romneyStat) {
+		this.city = city;
+		this.state = state;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.obamaStat = obamaStat;
+		this.romneyStat = romneyStat;
+	}
+	
+	public String toString() {
+		return city + ", " + state;
+	}
     
 }

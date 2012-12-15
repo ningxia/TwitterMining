@@ -37,7 +37,7 @@
         
         <link rel="stylesheet" href="@{'public/stylesheets/bootstrap-responsive.min.css'}">
         <link rel="stylesheet" href="@{'public/stylesheets/main.css'}">
-        
+        #{get 'moreStyles' /}
         <script src="@{'public/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js'}"></script>
 
     </head>
@@ -111,7 +111,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         
         <script>window.jQuery || document.write('<script src="/public/javascripts/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-
+        
+        #{get 'moreScripts' /}
+        
         <script src="@{'public/javascripts/vendor/bootstrap.min.js'}"></script>
         
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCLxPH-Rmxf27fd0WyHp79TRD2dYaEjAM&sensor=false"></script>

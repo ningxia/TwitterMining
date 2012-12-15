@@ -1,0 +1,11 @@
+[
+#{list data}
+	{
+		"tweetId": "${_.tweetId}",
+		"latitude": "${_.latitude}",
+		"longitude": "${_.longitude}",
+		"city": "${_.city}",
+		"state": "${_.state}"
+	} #{if !_isLast},#{/if}
+#{/list}
+]

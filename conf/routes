@@ -4,9 +4,8 @@
 
 # Home page
 GET     /                                       Application.index
-GET		/sites.json								Application.listSites
-POST	/bounds									Application.postBounds
-GET		/bounds									Application.postBounds
+GET		/sites.json								Application.sites
+GET		/bounds									Application.bounds(format:'json')
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
