@@ -55,7 +55,7 @@ public class Application extends Controller {
     		for(Capital cap: capitalList) {
     			obama = (Long) JPA.em().createQuery("SELECT SUM(s.obama) FROM Site s WHERE s.state = " + "'" + cap.state + "'").getResultList().get(0);
     			romney = (Long) JPA.em().createQuery("SELECT SUM(s.romney) FROM Site s WHERE s.state = " + "'" + cap.state + "'").getResultList().get(0);
-    			s = new Site(cap.city, cap.state, cap.latitude, cap.longitude, safeLongToInt(obama), safeLongToInt(romney));
+    			s = new Site(cap.city, cap.fullState, cap.latitude, cap.longitude, safeLongToInt(obama), safeLongToInt(romney));
     			site.add(s);
     		}
     	}

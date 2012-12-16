@@ -25,7 +25,7 @@
 var map;
 var markersArray = [];
 var infoWindow = new google.maps.InfoWindow({ 
-    size: new google.maps.Size(60,30)
+    size: new google.maps.Size(150,50)
 });
 
 function initialize() {
@@ -45,11 +45,12 @@ function initialize() {
 	/* 	Add original marker and message */
 	var marker = new google.maps.Marker({
 		position: mapCenter,
-		map: map
+		map: map,
+		icon: setIcon('donkey-elephant.jpeg', 90, 48)
 	});
 	markersArray.push(marker);
 	/* 	Add original info window */
-	infoWindow.setContent("<h4>" + "United States" + "</h4>" + "Obama: ${site.obamaStat}, Romney: ${site.romneyStat}");
+	infoWindow.setContent("<h4>" + "United States" + "</h4>" + "<h5>Obama: ${site.obamaStat}, Romney: ${site.romneyStat}</h5>");
 	infoWindow.open(map, marker);
 	
 	google.maps.event.addListenerOnce(map, 'idle', function() {
@@ -86,10 +87,11 @@ google.maps.event.addListener(map, 'click', function(event) {
 }
 
 /* Add markers to the marker array */
-function addMarker(myLatLng, contentString) {
+function addMarker(myLatLng, contentString, image) {
 	marker = new google.maps.Marker({
 		position: myLatLng,
-		map: map
+		map: map,
+		icon: image
 	});
 	markersArray.push(marker);
 	attachMessage(marker, contentString);
@@ -154,11 +156,30 @@ function getData(map) {
 		success: function(data) {
 			for(var i = 0; i < data.length; i ++) {
 				var myLatLng = new google.maps.LatLng(data[i].latitude, data[i].longitude);
-				var message = "<h4>" + data[i].city + " " + data[i].state + "</h4>" + "Obama: " + data[i].obamaStat + " " + "Romney: " + data[i].romneyStat;
-				addMarker(myLatLng, message);
+				if(zoomLevel == 5) {
+					var message = "<h4>State of " + data[i].state + "</h4>" + "<h5>Obama: " + data[i].obamaStat + " " + "Romney: " + data[i].romneyStat + "</h5>";
+				}
+				else {
+					var message = "<h4>" + data[i].city + ", " + data[i].state + "</h4>" + "<h5>Obama: " + data[i].obamaStat + " " + "Romney: " + data[i].romneyStat + "</h5>";
+				}
+				var image;
+				if(data[i].obama == data[i].romney) {
+					image = setIcon('donkey-elephant.jpeg', zoomLevel * 18, zoomLevel * 9.6);
+				}
+				else if(data[i].obama > data[i].romney) {
+					image = setIcon('donkey.jpeg', zoomLevel * 9, zoomLevel * 9.6);
+				}
+				else {
+					image = setIcon('elephant.jpeg', zoomLevel * 9, zoomLevel * 9.6);
+				}
+				addMarker(myLatLng, message, image);
 			}
 		}
 	});
+}
+
+function setIcon(url, wid, hig) {
+	return new google.maps.MarkerImage('public/images/' + url, null, null, null, new google.maps.Size(wid, hig));	
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
