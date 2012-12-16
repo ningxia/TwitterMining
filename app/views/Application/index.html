@@ -46,7 +46,7 @@ function initialize() {
 	var marker = new google.maps.Marker({
 		position: mapCenter,
 		map: map,
-		icon: setIcon('donkey-elephant.jpeg', 90, 48)
+		icon: setIcon('donkey-elephant.jpeg', 120, 64)
 	});
 	markersArray.push(marker);
 	/* 	Add original info window */
@@ -157,10 +157,10 @@ function getData(map) {
 			for(var i = 0; i < data.length; i ++) {
 				var myLatLng = new google.maps.LatLng(data[i].latitude, data[i].longitude);
 				if(zoomLevel == 5) {
-					var message = "<h4>State of " + data[i].state + "</h4>" + "<h5>Obama: " + data[i].obamaStat + " " + "Romney: " + data[i].romneyStat + "</h5>";
+					var message = "<h4>State of " + data[i].state + "</h4>" + "<h5>Obama: " + data[i].obamaStat + ", " + "Romney: " + data[i].romneyStat + "</h5>";
 				}
 				else {
-					var message = "<h4>" + data[i].city + ", " + data[i].state + "</h4>" + "<h5>Obama: " + data[i].obamaStat + " " + "Romney: " + data[i].romneyStat + "</h5>";
+					var message = "<h4>" + data[i].city + ", " + data[i].state + "</h4>" + "<h5>Obama: " + data[i].obamaStat + ", " + "Romney: " + data[i].romneyStat + "</h5>";
 				}
 				var image;
 				if(data[i].obama == data[i].romney) {
